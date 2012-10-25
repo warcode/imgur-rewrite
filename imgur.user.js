@@ -1,4 +1,5 @@
 // ==UserScript==
+// @version 1.0.5
 // @name           Imgur rewrite 
 // @namespace      http://www.reddit.com/*
 // @description    Makes imgur links into the direct link
@@ -13,7 +14,7 @@ for(var i = 0; i != entries.length; i++)
 	var link = entries[i];
 
 	//ignore album links
-	if(link.href.indexOf("imgur.com/a/") == -1)
+	if((link.href.indexOf("imgur.com/a/") == -1) && (link.href.indexOf("imgur.com/gallery/") == -1))
 	{
 		if(link.href.indexOf("imgur.com") != -1)
 		{

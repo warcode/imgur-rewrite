@@ -19,15 +19,15 @@ for(var i = 0; i != entries.length; i++)
 		if(link.href.indexOf("imgur.com") != -1)
 		{
 
-			if(link.href.indexOf("i.imgur.com") == -1)
-			{
-				link.title = "Original at: " + link.href;
-				link.href = wtf_replace(link.href, "imgur.com", "i.imgur.com");
-			}
-			else if(link.href.split(".").length < 3)
+			if(link.href.split(".").length < 3)
 			{
 				link.title = "Original at: " + link.href;
 				link.href += ".png";
+				link.href = wtf_replace(link.href, "imgur.com", "i.imgur.com");
+			}
+			else if(link.href.indexOf("i.imgur.com") == -1)
+			{
+				link.title = "Original at: " + link.href;
 				link.href = wtf_replace(link.href, "imgur.com", "i.imgur.com");
 			}
 			else if(link.href.indexOf(",") != -1)

@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version 1.0.6
+// @version 1.0.7
 // @name           Imgur rewrite 
 // @namespace      http://www.reddit.com/*
 // @description    Makes imgur links into the direct link
@@ -18,11 +18,10 @@ for(var i = 0; i != entries.length; i++)
 	{
 		if(link.href.indexOf("imgur.com") != -1)
 		{
-			if(link.href.split(",").length > 1)
+
+			if(link.href.indexOf("i.imgur.com") == -1)
 			{
 				link.title = "Original at: " + link.href;
-				link.href = link.href.split(",")[0];
-				link.href += ".png";
 				link.href = wtf_replace(link.href, "imgur.com", "i.imgur.com");
 			}
 			else if(link.href.split(".").length < 3)
@@ -31,9 +30,11 @@ for(var i = 0; i != entries.length; i++)
 				link.href += ".png";
 				link.href = wtf_replace(link.href, "imgur.com", "i.imgur.com");
 			}
-			else if(link.href.indexOf("i.imgur.com") == -1)
+			else if(link.href.indexOf(",") != -1)
 			{
 				link.title = "Original at: " + link.href;
+				link.href = link.href.split(",").length;
+				link.href += ".png";
 				link.href = wtf_replace(link.href, "imgur.com", "i.imgur.com");
 			}
 		}
